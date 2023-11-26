@@ -1,0 +1,15 @@
+{
+  "admin": {
+    "role_id": "6ac44576-81ca-4389-885e-2b78529f0c91",
+    "appLevelAccesses": [
+      {
+        "role_id": "6ac44576-81ca-4389-885e-2b78529f0c91",
+        "can_view_home": 1,
+        "can_view_profile": 1,
+        "can_view_search": 1
+      }
+    ]
+  },
+  "hospital": {},
+  "staff": {}
+}

@@ -1,0 +1,80 @@
+{
+  "admin": {
+    "role_id": "6ac44576-81ca-4389-885e-2b78529f0c91",
+    "pageLevelAccesses": [
+      {
+        "module": "/dashboard/admin-1",
+        "role_id": "6ac44576-81ca-4389-885e-2b78529f0c91",
+        "can_access_menu": 1,
+        "can_view_list": 1,
+        "can_search_list": 1,
+        "can_filter_list": 1,
+        "can_export_xlsx": 0,
+        "can_export_pdf": 0,
+        "can_export_word": 0,
+        "can_create_record": 1,
+        "can_edit_record": 1,
+        "can_delete_record": 1
+      },
+      {
+        "module": "/account/users",
+        "role_id": "6ac44576-81ca-4389-885e-2b78529f0c91",
+        "can_access_menu": 1,
+        "can_view_list": 1,
+        "can_search_list": 1,
+        "can_filter_list": 1,
+        "can_export_xlsx": 0,
+        "can_export_pdf": 0,
+        "can_export_word": 0,
+        "can_create_record": 1,
+        "can_edit_record": 1,
+        "can_delete_record": 1
+      },
+      {
+        "module": "/account/user-roles",
+        "role_id": "6ac44576-81ca-4389-885e-2b78529f0c91",
+        "can_access_menu": 1,
+        "can_view_list": 1,
+        "can_search_list": 1,
+        "can_filter_list": 1,
+        "can_export_xlsx": 0,
+        "can_export_pdf": 0,
+        "can_export_word": 0,
+        "can_create_record": 1,
+        "can_edit_record": 1,
+        "can_delete_record": 1
+      },
+      {
+        "module": "/account/regions",
+        "role_id": "6ac44576-81ca-4389-885e-2b78529f0c91",
+        "can_access_menu": 1,
+        "can_view_list": 1,
+        "can_search_list": 1,
+        "can_filter_list": 1,
+        "can_export_xlsx": 0,
+        "can_export_pdf": 0,
+        "can_export_word": 0,
+        "can_create_record": 1,
+        "can_edit_record": 1,
+        "can_delete_record": 1
+      },
+      {
+        "module": "/account/townships",
+        "role_id": "6ac44576-81ca-4389-885e-2b78529f0c91",
+        "can_access_menu": 1,
+        "can_view_list": 1,
+        "can_search_list": 1,
+        "can_filter_list": 1,
+        "can_export_xlsx": 0,
+        "can_export_pdf": 0,
+        "can_export_word": 0,
+        "can_create_record": 1,
+        "can_edit_record": 1,
+        "can_delete_record": 1
+      }
+    ]
+  },
+  "hospital": {},
+  "reception": {},
+  "staff": {}
+}

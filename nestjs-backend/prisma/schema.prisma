@@ -1,0 +1,114 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+model UserRole {
+    id     String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
+    name   Int    @db.TinyInt()
+    level  Int    @db.TinyInt()
+    active Int    @default(1) @db.TinyInt()
+
+    system_users SystemUser[]
+
+    app_level_accesses  AppLevelAccess[]
+    page_level_accesses PageLevelAccess[]
+
+    created_at DateTime @default(now())
+    updated_at DateTime @default(now())
+
+    @@map("user_role")
+}
+
+model AppLevelAccess {
+    id String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
+
+    can_view_home    Int @default(1)
+    can_view_profile Int @default(1)
+    can_view_search  Int @default(1)
+
+    role_id   String   @db.VarChar(36)
+    user_role UserRole @relation(fields: [role_id], references: [id])
+
+    created_at DateTime @default(now())
+    updated_at DateTime @default(now())
+
+    @@map("app_level_access")
+}
+
+model PageLevelAccess {
+    id String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
+
+    module            String @db.VarChar(100)
+    can_acess_menu    Int    @default(1)
+    can_view_list     Int    @default(1)
+    can_search_list   Int    @default(1)
+    can_filter_list   Int    @default(1)
+    can_export_xlsx   Int    @default(1)
+    can_export_pdf    Int    @default(1)
+    can_export_word   Int    @default(1)
+    can_create_record Int    @default(1)
+    can_edit_record   Int    @default(1)
+    can_delete_record Int    @default(1)
+
+    role_id   String   @db.VarChar(36)
+    user_role UserRole @relation(fields: [role_id], references: [id])
+
+    created_at DateTime @default(now())
+    updated_at DateTime @default(now())
+
+    @@map("page_level_access")
+}
+
+model SystemUser {
+    id          String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
+    fullname    String @db.VarChar(50)
+    phone       String @unique @db.VarChar(13)
+    username    String @unique @db.VarChar(16)
+    password    String @db.VarChar(100)
+    description String @db.VarChar(255)
+
+    role_id   String   @db.VarChar(36)
+    user_role UserRole @relation(fields: [role_id], references: [id])
+
+    created_at DateTime @default(now())
+    updated_at DateTime @default(now())
+
+    @@map("system_user")
+}
+
+model Region {
+    id      String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
+    name    String @db.VarChar(50)
+    name_mm String @db.VarChar(50)
+    active  Int    @default(1) @db.TinyInt()
+
+    townships Township[]
+
+    created_at DateTime @default(now())
+    updated_at DateTime @default(now())
+
+    @@map("region")
+}
+
+model Township {
+    id      String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
+    name    String @db.VarChar(50)
+    name_mm String @db.VarChar(50)
+    active  Int    @default(1) @db.TinyInt()
+
+    region_id String @db.VarChar(36)
+    region    Region @relation(fields: [region_id], references: [id])
+
+    created_at DateTime @default(now())
+    updated_at DateTime @default(now())
+
+    @@map("township")
+}
