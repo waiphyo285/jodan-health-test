@@ -27,7 +27,7 @@ export class FirebaseAdminController {
   async pushNotificationToTopic() {
     const topic = 'your_topic_name';
     const title = 'Hello from Nest.js';
-    const body = 'This is a push notification to a topic!';
+    const body = 'This is a push notification example!';
 
     const result = await this.firebaseAdminService.pushNotificationByTopic(
       topic,

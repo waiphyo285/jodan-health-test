@@ -2,9 +2,9 @@ import { Card, CardContent, Grid, Typography } from '@mui/material';
 
 import SidebarLayout from '@/layouts/SidebarLayout';
 import PageWrapper from '@/components/PageWrapper';
+import WatchList from '@/contents/Dashboard/WatchList';
 
 import dashboardValues from '@/initialValues/pages/Dashbord';
-// import WatchList from '@/contents/Dashboard/Admin/WatchList';
 
 function DashboardOne() {
   const pageValues = dashboardValues.makePageValues();
@@ -25,9 +25,9 @@ function DashboardOne() {
           </Card>
         </Grid>
       ))}
-      {/* <Grid item xs={12}>
+      <Grid item xs={12}>
         <WatchList />
-      </Grid> */}
+      </Grid>
     </PageWrapper>
   );
 }

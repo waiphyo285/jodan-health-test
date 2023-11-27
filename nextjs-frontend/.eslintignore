@@ -1,5 +1,5 @@
 # .estlintignore file
 dist
-.next
 build
+.next
 node_modules/

@@ -4,6 +4,7 @@ import { store } from '@/redux/store';
 import { getListFilter } from '@/redux/config.slice';
 import { storeKeys } from '@/utilities/constants/storeKeys';
 
+const YES = 'yes';
 const NOT_FOUND = 'Credential not found';
 
 export const useLogin = () => {
@@ -13,21 +14,23 @@ export const useLogin = () => {
     if (user?.data === NOT_FOUND) return null;
 
     if (user) {
-      let roleId = user.data.userInfo.role_id;
+      const roleId = user.data.userInfo.role_id;
+
+      const { PERMISSION, APP_LEVEL_ACCESS, PAGE_LEVEL_ACCESS } = storeKeys;
 
       store?.dispatch(
         getListFilter({
-          url: storeKeys.PAGE_LEVEL_ACCESSES,
+          url: `${PERMISSION}/${PAGE_LEVEL_ACCESS}`,
           query: { role_id: roleId },
-          storeKey: storeKeys.PAGE_LEVEL_ACCESSES
+          storeKey: PAGE_LEVEL_ACCESS
         })
       );
 
       store?.dispatch(
         getListFilter({
-          url: storeKeys.APP_LEVEL_ACCESSES,
+          url: `${PERMISSION}/${APP_LEVEL_ACCESS}`,
           query: { role_id: roleId },
-          storeKey: storeKeys.APP_LEVEL_ACCESSES
+          storeKey: APP_LEVEL_ACCESS
         })
       );
 
@@ -38,9 +41,14 @@ export const useLogin = () => {
 
   const guardLogin = async (url: string, data: any) => {
     const guardUser = await AuthService.guardLogin(url, data);
+
     if (guardUser?.data === NOT_FOUND) return null;
-    Cookies.set('isGuardUser', 'yes');
-    Cookies.set('currentUser', JSON.stringify(guardUser?.data));
+
+    const dataStr = JSON.stringify(guardUser?.data);
+
+    Cookies.set('isGuardUser', YES);
+    Cookies.set('currentUser', dataStr);
+
     return guardUser?.data;
   };
 

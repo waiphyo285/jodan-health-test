@@ -9,9 +9,6 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-
-import { Request, Response } from 'express';
-import { GlobalResponseError } from './response-error';
 import {
   PrismaClientInitializationError,
   PrismaClientKnownRequestError,
@@ -19,6 +16,8 @@ import {
   PrismaClientUnknownRequestError,
   PrismaClientValidationError,
 } from '@prisma/client/runtime/library';
+import { Request, Response } from 'express';
+import { GlobalResponseError } from './response-error';
 
 @Catch()
 export class GlobalExceptionFilter implements ExceptionFilter {
@@ -41,6 +40,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
         status = (exception as HttpException).getStatus();
         message = (exception as HttpException).message;
         break;
+
       case UnauthorizedException:
         status = HttpStatus.UNAUTHORIZED;
         message = (exception as any).message;
@@ -54,23 +54,27 @@ export class GlobalExceptionFilter implements ExceptionFilter {
           '',
         );
         break;
+
       case PrismaClientValidationError:
         status = HttpStatus.UNPROCESSABLE_ENTITY;
         message = (exception as PrismaClientValidationError).message.replace(
           /\n/g,
           '',
         );
+
       case PrismaClientRustPanicError:
         status = HttpStatus.BAD_REQUEST;
         message = (exception as PrismaClientRustPanicError).message.replace(
           /\n/g,
           '',
         );
+
       case PrismaClientUnknownRequestError:
         status = HttpStatus.BAD_REQUEST;
         message = (
           exception as PrismaClientUnknownRequestError
         ).message.replace(/\n/g, '');
+
       case PrismaClientInitializationError:
         status = HttpStatus.BAD_REQUEST;
         message = (

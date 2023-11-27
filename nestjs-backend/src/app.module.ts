@@ -8,8 +8,8 @@ import { ConfigModule } from '@nestjs/config';
 import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { GlobalExceptionFilter } from 'src/config/handlers/catch-exception';
 import { TransformationInterceptor } from 'src/config/handlers/response-success';
-import { CheckRequestData } from './middleware/check-request.middleware';
-import { CheckIdIsEmpty } from './middleware/check-id-empty.middleware';
+import { CheckRequestData } from './middleware/check-request';
+import { CheckIsEmptyId } from './middleware/ check-empty-id';
 
 const envModule = ConfigModule.forRoot({
   isGlobal: true,
@@ -18,8 +18,7 @@ const envModule = ConfigModule.forRoot({
 import { PrismaModule } from './prisma/prisma.module';
 
 // PERMISSION
-import { AppLevelAccessModule } from './app-level-access/app-level-access.module';
-import { PageLevelAccessModule } from './page-level-access/page-level-access.module';
+import { PermissionModule } from './permission/permission.module';
 
 // USER
 import { AuthModule } from './auth/auth.module';
@@ -37,8 +36,7 @@ import { TownshipModule } from './township/township.module';
     PrismaModule,
 
     // PERMISSION
-    AppLevelAccessModule,
-    PageLevelAccessModule,
+    PermissionModule,
 
     // USER
     AuthModule,
@@ -76,7 +74,7 @@ export class AppModule implements NestModule {
       path: '*',
       method: RequestMethod.PATCH,
     });
-    consumer.apply(CheckIdIsEmpty).forRoutes({
+    consumer.apply(CheckIsEmptyId).forRoutes({
       // if ID is empty remove ID
       path: '*',
       method: RequestMethod.POST,

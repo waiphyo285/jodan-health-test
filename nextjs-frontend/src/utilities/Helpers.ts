@@ -66,12 +66,12 @@ export function findLabelByValue(options: any[], value: any) {
 }
 
 export function findAccessHeaderItem(accessModule: any) {
-  const { app_level_accesses: storeAppLevelAcccess }: any = useSelector(
-    (state: AppState) => state?.appConfig
+  const storeAppLevelAccess: any = useSelector(
+    (state: AppState) => state?.appConfig?.['get-app-access']
   );
-  const appLevelAccess = ls.getItem(storeKeys.APP_LEVEL_ACCESSES);
+  const appLevelAccess = ls.getItem(storeKeys.APP_LEVEL_ACCESS);
 
-  const accessAppMenu = appLevelAccess || storeAppLevelAcccess;
+  const accessAppMenu = appLevelAccess || storeAppLevelAccess;
 
   if (accessAppMenu) {
     return accessAppMenu.find((permission: any) => permission[accessModule]);
@@ -81,11 +81,11 @@ export function findAccessHeaderItem(accessModule: any) {
 export function findAccessMenu(accessModule: any, currentPath: string) {
   return true;
 
-  const { page_level_accesses: storePageLevelAccess }: any = useSelector(
-    (state: AppState) => state?.appConfig
+  const storePageLevelAccess: any = useSelector(
+    (state: AppState) => state?.appConfig?.['get-page-access']
   );
 
-  const pageLevelAccess = ls.getItem(storeKeys.PAGE_LEVEL_ACCESSES);
+  const pageLevelAccess = ls.getItem(storeKeys.PAGE_LEVEL_ACCESS);
 
   const accessPageMenu = pageLevelAccess || storePageLevelAccess;
 
@@ -100,11 +100,11 @@ export function findAccessMenu(accessModule: any, currentPath: string) {
 export function filterSubMenu(AppMenuList: any) {
   return AppMenuList;
 
-  const { page_level_accesses: storePageLevelAccess } = useSelector(
-    (state) => state?.appConfig || {}
+  const storePageLevelAccess: any = useSelector(
+    (state: AppState) => state?.appConfig?.['get-page-access']
   );
 
-  const pageLevelAccess = ls.getItem(storeKeys.PAGE_LEVEL_ACCESSES);
+  const pageLevelAccess = ls.getItem(storeKeys.PAGE_LEVEL_ACCESS);
 
   const accessPageMenu = pageLevelAccess || storePageLevelAccess;
 

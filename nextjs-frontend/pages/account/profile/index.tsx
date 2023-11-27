@@ -10,8 +10,8 @@ import { getOneData } from '@/redux/entry/common.slice';
 
 import { getCurrentUser } from '@/utilities/Getters';
 
-import ProfileCover from '@/contents/Account/Users/ProfileCard';
-import UserActivity from '@/contents/Account/Users/Activity';
+import ProfileCover from '@/contents/Account/User/ProfileCard';
+import UserActivity from '@/contents/Account/User/Activity';
 
 import generateValues from '@/initialValues/pages/Profile';
 

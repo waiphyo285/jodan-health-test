@@ -17,20 +17,9 @@ const initialValue = {
 const initialState = {
   [storeKeys.USER]: initialValue,
   [storeKeys.USER_ROLE]: initialValue,
-  [storeKeys.PUBLIC_USER]: initialValue,
-
-  [storeKeys.STATION]: initialValue,
-  [storeKeys.STATION_USER]: initialValue,
-  [storeKeys.STATION_STAFF]: initialValue,
-  [storeKeys.STATION_COUNTER]: initialValue,
-  [storeKeys.STATION_SETTING]: initialValue,
 
   [storeKeys.REGION]: initialValue,
-  [storeKeys.TOWNSHIP]: initialValue,
-  [storeKeys.MESSAGING_PROVIDER]: initialValue,
-
-  [storeKeys.VERSION]: initialValue,
-  [storeKeys.APPLICATION]: initialValue
+  [storeKeys.TOWNSHIP]: initialValue
 };
 
 export const getListData = createAsyncThunk(

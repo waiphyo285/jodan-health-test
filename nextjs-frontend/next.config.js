@@ -1,24 +1,24 @@
 const withImages = require('next-images');
 
-const API_URL = process.env.API_URL
+const API_URL = process.env.API_URL;
 
 module.exports = withImages({
   redirects: async () => {
     return [
       {
         source: '/dashboard',
-        destination: '/dashboard/admin_1',
+        destination: '/dashboard/admin-1',
         permanent: true
-      },
+      }
       // {
-			// 	source: '/api/:path*',
-			// 	destination: `${API_URL}/:path*`,
+      // 	source: '/api/:path*',
+      // 	destination: `${API_URL}/:path*`,
       //   permanent: false
-			// },
+      // },
     ];
   },
   images: {
-    domains: ['tokendoctor-express-bucket.s3.ap-southeast-1.amazonaws.com']
+    domains: ['your-backup-name.s3.ap-southeast-1.amazonaws.com']
   }
 
   //   typescript: {

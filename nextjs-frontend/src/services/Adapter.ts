@@ -91,25 +91,6 @@ export class RequestAdapter extends NetworkAdapter {
           .removeProperty('re_password')
           .finish();
 
-      case storeKeys.STATION_USER:
-        return new ObjectConverter(origin)
-          .removeProperty('re_password')
-          .removeProperty('user_role')
-          .removeProperty('cng_station')
-          .finish();
-
-      case storeKeys.STATION_STAFF:
-        return new ObjectConverter(origin)
-          .removeProperty('re_password')
-          .removeProperty('cng_station')
-          .removeProperty('messaging_provider')
-          .finish();
-
-      case storeKeys.STATION_COUNTER:
-        return new ObjectConverter(origin)
-          .removeProperty('cng_station')
-          .finish();
-
       case storeKeys.TOWNSHIP:
         return new ObjectConverter(origin).removeProperty('region').finish();
 

@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 
 import Cookies from 'js-cookie';
 
+const YES = 'yes'
+
 function RouteGuard({ children }) {
   const router = useRouter();
   const [authorized, setAuthorized] = useState(false);
@@ -43,7 +45,7 @@ function RouteGuard({ children }) {
       (!accessToken && !publicPaths.includes(currentPath)) ||
       (accessToken && currentTime >= issuedAt + expiresIn);
 
-    if (forceLogout || isGuardUser === 'yes') {
+    if (forceLogout || isGuardUser === YES) {
       Cookies.remove('isGuardUser');
       Cookies.remove('currentUser');
       setAuthorized(false);

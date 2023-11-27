@@ -21,7 +21,7 @@ export class CheckRequestData implements NestMiddleware {
         next();
       } catch (error) {
         console.error('Decryption error:', error.message);
-        throw new BadRequestException(`Throw encryption error.`);
+        throw new BadRequestException(`Throw decryption error.`);
       }
     }
     if (!this.isEncrypted || !isTrustClient) next();

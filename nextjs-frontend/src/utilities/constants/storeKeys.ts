@@ -12,8 +12,10 @@ export const storeKeys = {
   AUTH: 'auth',
   USER: 'system-users',
   USER_ROLE: 'user-roles',
-  APP_LEVEL_ACCESSES: 'app-level-accesses',
-  PAGE_LEVEL_ACCESSES: 'page-level-accesses',
+
+  PERMISSION: 'permissions',
+  APP_LEVEL_ACCESS: 'get-app-access',
+  PAGE_LEVEL_ACCESS: 'get-page-access',
 
   REGION: 'regions',
   TOWNSHIP: 'townships'

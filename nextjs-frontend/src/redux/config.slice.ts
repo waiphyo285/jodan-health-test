@@ -7,10 +7,8 @@ const initialState = {
   [storeKeys.USER]: [],
   [storeKeys.USER_ROLE]: [],
 
-  [storeKeys.APP_LEVEL_ACCESSES]: [],
-  [storeKeys.PAGE_LEVEL_ACCESSES]: [],
-
-  [storeKeys.STATION]: [],
+  [storeKeys.APP_LEVEL_ACCESS]: [],
+  [storeKeys.PAGE_LEVEL_ACCESS]: [],
 
   [storeKeys.REGION]: [],
   [storeKeys.TOWNSHIP]: []
@@ -41,8 +39,8 @@ export const appConfigSlice = createSlice({
       .addCase(<any>getListFilter.fulfilled, (state, action) => {
         const storeKey = action.meta.arg.storeKey;
         if (
-          storeKey === storeKeys.PAGE_LEVEL_ACCESSES ||
-          storeKey === storeKeys.APP_LEVEL_ACCESSES
+          storeKey === storeKeys.PAGE_LEVEL_ACCESS ||
+          storeKey === storeKeys.APP_LEVEL_ACCESS
         )
           ls.setItem(storeKey, action.payload);
         if (storeKey) state[storeKey] = action.payload;

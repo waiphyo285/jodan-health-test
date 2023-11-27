@@ -65,7 +65,7 @@ function LoginPage() {
 
       if (res) {
         store?.dispatch(setAuthState(res));
-        router.push('/dashboard/admin_1');
+        router.push('/dashboard/admin-1');
         return;
       }
 

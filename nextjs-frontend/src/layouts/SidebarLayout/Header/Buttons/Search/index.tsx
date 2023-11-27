@@ -170,7 +170,7 @@ function HeaderSearch() {
                       sx={{ fontWeight: 'bold' }}
                       variant="body2"
                     >
-                      Dashboard for Healthcare Platform
+                      Admin Dashboard
                     </Link>
                   </Box>
                   <Typography
@@ -182,7 +182,7 @@ function HeaderSearch() {
                     }}
                   >
                     This page contains all the necessary information for
-                    managing all hospital staff.
+                    managing your application
                   </Typography>
                 </Box>
                 <ChevronRightOutlined />
