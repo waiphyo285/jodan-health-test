@@ -10,7 +10,7 @@ import { getListData } from '@/redux/list/common.slice';
 import { updateData } from '@/redux/entry/common.slice';
 
 import FormPages from '@/contents/Common/PageForm';
-import generateValues from '@/initialValues/pages/EditUser';
+import generateValues from '@/sources/pages/EditUser';
 
 function EditInformationPage() {
   const formRef = useRef(null);

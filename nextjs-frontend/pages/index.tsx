@@ -32,7 +32,7 @@ import { useLogin } from '@/hooks/auth/useLogin';
 import ShowAlertMessage from '@/components/Stackbar';
 import { alertMessage, appInfo } from '@/utilities/constants/application';
 
-import authLoginValues from '@/initialValues/pages/Auth';
+import authLoginValues from '@/sources/pages/Auth';
 
 const endPoint = authLoginValues.makeEndPoint();
 const pageValues = authLoginValues.makePageValues();

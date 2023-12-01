@@ -13,8 +13,8 @@ import { getListData } from '@/redux/config.slice';
 import { AppState, store } from '@/redux/store';
 import { handleToggleModal } from '@/utilities/Handlers';
 
-import generateValues from '@/initialValues/pages/User';
-import userRoleValues from '@/initialValues/pages/UserRole';
+import generateValues from '@/sources/pages/User';
+import userRoleValues from '@/sources/pages/UserRole';
 import generateTableCols from '@/configs/GenerateTableCols';
 
 function UserPage() {

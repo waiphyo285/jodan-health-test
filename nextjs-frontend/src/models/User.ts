@@ -1,4 +1,4 @@
-import { InitialValuesFactory } from './initialValues';
+import { InitialValuesFactory } from './sources';
 
 export interface User {
   id: string | number;

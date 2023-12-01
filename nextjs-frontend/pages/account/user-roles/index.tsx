@@ -11,7 +11,7 @@ import PageWrapper from '@/components/PageWrapper';
 import { AppState } from '@/redux/store';
 import { handleToggleModal } from '@/utilities/Handlers';
 
-import generateValues from '@/initialValues/pages/UserRole';
+import generateValues from '@/sources/pages/UserRole';
 import generateTableCols from '@/configs/GenerateTableCols';
 
 function UserRolePage() {

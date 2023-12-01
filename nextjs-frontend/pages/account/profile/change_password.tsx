@@ -10,7 +10,7 @@ import { getListData } from '@/redux/list/common.slice';
 import { createData } from '@/redux/entry/common.slice';
 
 import FormPages from '@/contents/Common/PageForm';
-import generateValues from '@/initialValues/pages/ChangePassword';
+import generateValues from '@/sources/pages/ChangePassword';
 
 const ENDPOINT = ['', 'change_password'];
 

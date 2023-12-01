@@ -11,7 +11,7 @@ import PageWrapper from '@/components/PageWrapper';
 import { AppState } from '@/redux/store';
 import { handleToggleModal } from '@/utilities/Handlers';
 
-import generateValues from '@/initialValues/pages/Region';
+import generateValues from '@/sources/pages/Region';
 import generateTableCols from '@/configs/GenerateTableCols';
 
 function RegionPage() {

@@ -13,7 +13,7 @@ import { getCurrentUser } from '@/utilities/Getters';
 import ProfileCover from '@/contents/Account/User/ProfileCard';
 import UserActivity from '@/contents/Account/User/Activity';
 
-import generateValues from '@/initialValues/pages/Profile';
+import generateValues from '@/sources/pages/Profile';
 
 function UserProfile() {
   const storeKey = generateValues.makeStoreKey();

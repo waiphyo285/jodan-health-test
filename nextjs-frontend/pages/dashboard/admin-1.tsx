@@ -4,7 +4,7 @@ import SidebarLayout from '@/layouts/SidebarLayout';
 import PageWrapper from '@/components/PageWrapper';
 import WatchList from '@/contents/Dashboard/WatchList';
 
-import dashboardValues from '@/initialValues/pages/Dashbord';
+import dashboardValues from '@/sources/pages/Dashbord';
 
 function DashboardOne() {
   const pageValues = dashboardValues.makePageValues();

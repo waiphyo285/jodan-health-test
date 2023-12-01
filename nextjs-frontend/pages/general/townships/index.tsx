@@ -13,8 +13,8 @@ import { AppState, store } from '@/redux/store';
 import { getListData } from '@/redux/config.slice';
 import { handleToggleModal } from '@/utilities/Handlers';
 
-import regionValues from '@/initialValues/pages/Region';
-import generateValues from '@/initialValues/pages/Township';
+import regionValues from '@/sources/pages/Region';
+import generateValues from '@/sources/pages/Township';
 import generateTableCols from '@/configs/GenerateTableCols';
 
 function TownshipPage() {
