@@ -12,8 +12,8 @@ import {
 } from '@nestjs/common';
 import { UseGuards } from '@nestjs/common/decorators';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { ResponseMessage } from 'src/common/config/handlers/response-message';
-import { PaginationQuery } from 'src/common/config/interfaces/request-query';
+import { ResponseMessage } from 'src/common/handlers/response-message';
+import { PaginationQuery } from 'src/common/interfaces/request-query';
 import { CreateRegionDto } from './dto/create-region.dto';
 import { UpdateRegionDto } from './dto/update-region.dto';
 import { RegionService } from './region.service';

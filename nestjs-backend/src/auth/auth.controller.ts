@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { ApiTags } from '@nestjs/swagger';
-import { ResponseMessage } from 'src/common/config/handlers/response-message';
+import { ResponseMessage } from 'src/common/handlers/response-message';
 
 import { SystemUserSignInDto } from './dto/auth/system-user-signin.dto';
 import { SystemUserSignUpDto } from './dto/auth/system-user-signup.dto';
