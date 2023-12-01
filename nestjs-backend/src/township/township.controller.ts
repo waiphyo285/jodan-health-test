@@ -12,8 +12,8 @@ import {
 } from '@nestjs/common';
 import { UseGuards } from '@nestjs/common/decorators';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { ResponseMessage } from 'src/config/handlers/response-message';
-import { PaginationQuery } from 'src/config/interfaces/request-query';
+import { ResponseMessage } from 'src/common/config/handlers/response-message';
+import { PaginationQuery } from 'src/common/config/interfaces/request-query';
 import { CreateTownshipDto } from './dto/create-township.dto';
 import { UpdateTownshipDto } from './dto/update-township.dto';
 import { TownshipService } from './township.service';

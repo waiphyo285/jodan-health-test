@@ -2,9 +2,9 @@ import { Injectable, Inject } from '@nestjs/common';
 import * as admin from 'firebase-admin';
 
 @Injectable()
-export class FirebaseAdminService {
+export class FirebaseFCMService {
   constructor(
-    @Inject('FIREBASE_ADMIN') private readonly firebaseAdmin: admin.app.App,
+    @Inject('FIREBASE_FCM') private readonly firebaseFCM: admin.app.App,
   ) {}
 
   async pushNotificationByTokens(tokens: any, title: string, body: string) {
@@ -19,7 +19,7 @@ export class FirebaseAdminService {
     };
 
     try {
-      const response = await this.firebaseAdmin
+      const response = await this.firebaseFCM
         .messaging()
         .sendMulticast(message);
 
@@ -43,7 +43,7 @@ export class FirebaseAdminService {
     };
 
     try {
-      const response = await this.firebaseAdmin.messaging().send(message);
+      const response = await this.firebaseFCM.messaging().send(message);
 
       console.info('Success notification sent: ', response);
       return response;

@@ -12,8 +12,8 @@ import {
 } from '@nestjs/common';
 import { UseGuards } from '@nestjs/common/decorators';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { ResponseMessage } from 'src/config/handlers/response-message';
-import { PaginationQuery } from 'src/config/interfaces/request-query';
+import { ResponseMessage } from 'src/common/config/handlers/response-message';
+import { PaginationQuery } from 'src/common/config/interfaces/request-query';
 import { CreateSystemUserDto } from './dto/create-system-user.dto';
 import { UpdateSystemUserDto } from './dto/update-system-user.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';

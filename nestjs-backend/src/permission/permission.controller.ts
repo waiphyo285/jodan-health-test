@@ -16,7 +16,7 @@ import {
 
 import { AuthGuard } from 'src/auth/auth.guard';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { ResponseMessage } from 'src/config/handlers/response-message';
+import { ResponseMessage } from 'src/common/config/handlers/response-message';
 
 @Controller('permissions')
 @ApiTags('Permission')

@@ -4,7 +4,7 @@ import { Grid, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 import ErrorWrapper from './ErrorWrapper';
 
 const CustomizedSelect = ({ name, options, rest }) => {
-  const { errors, touched } = useFormikContext();
+  const { errors, touched, setFieldValue } = useFormikContext();
   const { label, optionKeyProp, optionLabelProp, fullWidth = true } = rest;
 
   return (
@@ -15,12 +15,16 @@ const CustomizedSelect = ({ name, options, rest }) => {
         as={Select}
         label={label}
         error={Boolean(errors?.[name] && touched?.[name])}
+        onChange={(e: any) => {
+          setFieldValue(name, e.target.value);
+          rest.wushuChange && rest.wushuChange({ [name]: e.target.value });
+        }}
       >
         <MenuItem value="">
           <em>Select one</em>
         </MenuItem>
 
-        {options?.map((option) => (
+        {options?.map((option: any) => (
           <MenuItem key={option[optionKeyProp]} value={option[optionKeyProp]}>
             {option[optionLabelProp]}
           </MenuItem>

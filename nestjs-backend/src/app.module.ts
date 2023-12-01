@@ -6,10 +6,11 @@ import {
 } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
-import { GlobalExceptionFilter } from 'src/config/handlers/catch-exception';
-import { TransformationInterceptor } from 'src/config/handlers/response-success';
+import { GlobalExceptionFilter } from 'src/common/config/handlers/catch-exception';
+import { TransformationInterceptor } from 'src/common/config/handlers/response-success';
+
 import { CheckRequestData } from './middleware/check-request';
-import { CheckIsEmptyId } from './middleware/ check-empty-id';
+import { CheckIsEmptyId } from './middleware/check-empty-id';
 
 const envModule = ConfigModule.forRoot({
   isGlobal: true,

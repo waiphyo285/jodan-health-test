@@ -1,11 +1,11 @@
 import { ApiTags } from '@nestjs/swagger';
 import { Controller, Post } from '@nestjs/common';
-import { FirebaseAdminService } from './firebase-admin.service';
+import { FirebaseFCMService } from './firebase-fcm.service';
 
-@Controller('firebase-admins')
-@ApiTags('Firebase Admin')
-export class FirebaseAdminController {
-  constructor(private readonly firebaseAdminService: FirebaseAdminService) {}
+@Controller('firebase-fcm')
+@ApiTags('Firebase FCM')
+export class FirebaseFCMController {
+  constructor(private readonly firebaseFCMService: FirebaseFCMService) {}
 
   @Post('/send-device-token')
   async pushNotificationToToken() {
@@ -14,7 +14,7 @@ export class FirebaseAdminController {
     const title = 'Hello from Nest.js';
     const body = 'This is a push notification example!';
 
-    const result = await this.firebaseAdminService.pushNotificationByTokens(
+    const result = await this.firebaseFCMService.pushNotificationByTokens(
       deviceToken,
       title,
       body,
@@ -29,7 +29,7 @@ export class FirebaseAdminController {
     const title = 'Hello from Nest.js';
     const body = 'This is a push notification example!';
 
-    const result = await this.firebaseAdminService.pushNotificationByTopic(
+    const result = await this.firebaseFCMService.pushNotificationByTopic(
       topic,
       title,
       body,
