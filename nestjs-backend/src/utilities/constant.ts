@@ -17,8 +17,6 @@ export const TRANS_STATUS = {
 export const MAPPING_TYPE = {
   systemUser: 'system_user',
   publicUser: 'public_user',
-  stationUser: 'station_user',
-  stationStaff: 'station_staff',
 };
 
 export const VALIDATE_MSG = {
@@ -27,4 +25,3 @@ export const VALIDATE_MSG = {
   password:
     'Password must be at least one uppercase, one lowercase, one number, and one special character.  ',
 };
-

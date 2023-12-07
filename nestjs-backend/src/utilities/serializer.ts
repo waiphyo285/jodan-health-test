@@ -20,11 +20,7 @@ export class Serializer {
 
   public static serialize(optionName: string, data: any) {
     switch (optionName) {
-      case MAPPING_TYPE.stationUser:
-        delete data.password;
-        return data;
-
-      case MAPPING_TYPE.stationStaff:
+      case MAPPING_TYPE.systemUser:
         delete data.password;
         return data;
 

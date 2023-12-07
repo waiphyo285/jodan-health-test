@@ -15,7 +15,7 @@ import { handleToggleModal } from '@/utilities/Handlers';
 
 import regionValues from '@/sources/pages/Region';
 import generateValues from '@/sources/pages/Township';
-import generateTableCols from '@/configs/GenerateTableCols';
+import generateTableCols from '@/configs/TableColumns';
 
 function TownshipPage() {
   const { initialValues: storeValues, actionsValues } = useSelector(

@@ -1,8 +1,7 @@
 export const options = {
   userRole: [
     { value: 1, label: 'Super Admin' },
-    { value: 2, label: 'Station Admin' },
-    { value: 3, label: 'Station Staff' }
+    { value: 2, label: 'Regional Admin' }
   ],
 
   userLevel: [

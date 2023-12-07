@@ -78,7 +78,7 @@ export class RequestAdapter extends NetworkAdapter {
           .finish();
 
       case storeKeys.USER:
-        if (options.url.includes('change_password')) {
+        if (options.url.includes('change-password')) {
           return new ObjectConverter({})
             .addProperty('id', origin.id)
             .addProperty('username', origin.username)

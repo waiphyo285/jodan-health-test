@@ -65,10 +65,10 @@ const ProfileCard = ({ user }) => {
             </Typography>
 
             <ButtonGroup sx={{ my: 1.2 }} variant="outlined" size="small">
-              <Link href="/account/profile/edit_information">
+              <Link href="/account/profile/edit-information">
                 <Button startIcon={<EditOutlined />}>Edit profile</Button>
               </Link>
-              <Link href="/account/profile/change_password">
+              <Link href="/account/profile/change-password">
                 <Button startIcon={<SettingsOutlined />}>
                   Change password
                 </Button>

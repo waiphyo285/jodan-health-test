@@ -1,14 +1,8 @@
 import {
-  NumbersOutlined,
   DashboardOutlined,
   PeopleAltOutlined,
-  CloudQueueOutlined,
-  CountertopsOutlined,
-  DescriptionOutlined,
   VerifiedUserOutlined,
-  LocationCityOutlined,
-  LocalGasStationOutlined,
-  RoomPreferencesOutlined
+  LocationCityOutlined
 } from '@mui/icons-material';
 
 export const SidebarMenuList: any = [

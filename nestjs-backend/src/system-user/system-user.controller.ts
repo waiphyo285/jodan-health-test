@@ -76,7 +76,7 @@ export class SystemUserController {
     return this.userService.delete(id);
   }
 
-  @Post('change_password')
+  @Post('change-password')
   @UseGuards(AuthGuard)
   @ApiBearerAuth('JWT-auth')
   @UsePipes(ValidationPipe)
@@ -85,7 +85,7 @@ export class SystemUserController {
     return this.userService.changePassword(user);
   }
 
-  @Post('reset_password')
+  @Post('reset-password')
   @UseGuards(AuthGuard)
   @ApiBearerAuth('JWT-auth')
   @UsePipes(ValidationPipe)

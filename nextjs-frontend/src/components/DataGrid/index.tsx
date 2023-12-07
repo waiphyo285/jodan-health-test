@@ -67,7 +67,7 @@ function CustomDataGrid({
   paginationModel,
   handlePaginationModel,
   handleButtonClick,
-  isListViewOnly = false
+  isListViewOnly: _isLVO = false
 }) {
   let actions: any[] = [];
   let serials: any[] = [

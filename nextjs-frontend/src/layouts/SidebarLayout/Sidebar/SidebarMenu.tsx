@@ -41,6 +41,7 @@ const SubMenuWrapper = styled(Box)(
 
       .MuiListItem-root {
         padding: 0px 0;
+        margin: -6px 0;
 
         .MuiBadge-root {
           position: absolute;

@@ -11,9 +11,14 @@ import {
   Typography
 } from '@mui/material';
 import { useRef, useState } from 'react';
-import { formatDistance, subDays } from 'date-fns';
-import { NotificationsOutlined } from '@mui/icons-material';
+
 import { styled } from '@mui/material/styles';
+import { NotificationsOutlined } from '@mui/icons-material';
+
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+dayjs.extend(relativeTime);
 
 const NotificationsBadge = styled(Badge)(
   ({ theme }) => `
@@ -41,6 +46,9 @@ const NotificationsBadge = styled(Badge)(
 function HeaderNotifications() {
   const ref = useRef<any>(null);
   const [isOpen, setOpen] = useState<boolean>(false);
+
+  const threeDaysAgo = dayjs().subtract(3, 'day');
+  const formattedDistance = dayjs().to(threeDaysAgo, true);
 
   const handleOpen = (): void => {
     setOpen(true);
@@ -97,9 +105,7 @@ function HeaderNotifications() {
                   Messaging Platform
                 </Typography>
                 <Typography variant="caption" sx={{ textTransform: 'none' }}>
-                  {formatDistance(subDays(new Date(), 3), new Date(), {
-                    addSuffix: true
-                  })}
+                  {formattedDistance}
                 </Typography>
               </Box>
               <Typography

@@ -12,7 +12,7 @@ import { createData } from '@/redux/entry/common.slice';
 import FormPages from '@/contents/Common/PageForm';
 import generateValues from '@/sources/pages/ChangePassword';
 
-const ENDPOINT = ['', 'change_password'];
+const ENDPOINT = ['', 'change-password'];
 
 function ChangePasswordPage() {
   const formRef = useRef(null);
@@ -46,7 +46,7 @@ function ChangePasswordPage() {
       createData({
         data: values,
         storeKey: storeKey,
-        url: endPoint.change_password
+        url: endPoint['change-password']
       })
     );
   };

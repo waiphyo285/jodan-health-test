@@ -143,7 +143,7 @@ function HeaderUserbox() {
                   <ListItemText primary="View profile" />
                 </ListItem>
               </NextLink>
-              <NextLink href="/account/change_password" passHref>
+              <NextLink href="/account/change-password" passHref>
                 <ListItem button>
                   <SettingsOutlined fontSize="small" />
                   <ListItemText primary="Change password" />

@@ -12,7 +12,7 @@ import { AppState } from '@/redux/store';
 import { handleToggleModal } from '@/utilities/Handlers';
 
 import generateValues from '@/sources/pages/UserRole';
-import generateTableCols from '@/configs/GenerateTableCols';
+import generateTableCols from '@/configs/TableColumns';
 
 function UserRolePage() {
   const { initialValues: storeValues, actionsValues } = useSelector(

@@ -26,9 +26,14 @@ import {
   styled
 } from '@mui/material';
 
-import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-import { format, subHours, subWeeks, subDays } from 'date-fns';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+
+import { DoneOutlined, DeleteOutlined } from '@mui/icons-material';
+
+dayjs.extend(utc);
+dayjs.extend(customParseFormat);
 
 const ButtonError = styled(Button)(
   ({ theme }) => `
@@ -82,35 +87,35 @@ function SecurityTab() {
       browser: ' Safari/537.36',
       ipaddress: '3.70.73.142',
       location: 'United States',
-      date: subDays(new Date(), 2).getTime()
+      date: dayjs().subtract(2, 'day').valueOf()
     },
     {
       id: 2,
       browser: 'Chrome/36.0.1985.67',
       ipaddress: '138.13.136.179',
       location: 'China',
-      date: subDays(new Date(), 6).getTime()
+      date: dayjs().subtract(6, 'day').valueOf()
     },
     {
       id: 3,
       browser: 'Googlebot/2.1',
       ipaddress: '119.229.170.253',
       location: 'China',
-      date: subHours(new Date(), 15).getTime()
+      date: dayjs().subtract(15, 'hour').valueOf()
     },
     {
       id: 4,
       browser: 'AppleWebKit/535.1',
       ipaddress: '206.8.99.49',
       location: 'Philippines',
-      date: subDays(new Date(), 4).getTime()
+      date: dayjs().subtract(3, 'day').valueOf()
     },
     {
       id: 5,
       browser: 'Mozilla/5.0',
       ipaddress: '235.40.59.85',
       location: 'China',
-      date: subWeeks(new Date(), 3).getTime()
+      date: dayjs().subtract(3, 'week').valueOf()
     }
   ];
 
@@ -151,7 +156,7 @@ function SecurityTab() {
             <ListItem sx={{ p: 3 }}>
               <ListItemAvatar sx={{ pr: 2 }}>
                 <AvatarSuccess>
-                  <DoneOutlinedIcon />
+                  <DoneOutlined />
                 </AvatarSuccess>
               </ListItemAvatar>
               <ListItemText
@@ -171,7 +176,7 @@ function SecurityTab() {
             <ListItem sx={{ p: 3 }}>
               <ListItemAvatar sx={{ pr: 2 }}>
                 <AvatarSuccess>
-                  <DoneOutlinedIcon />
+                  <DoneOutlined />
                 </AvatarSuccess>
               </ListItemAvatar>
               <ListItemText
@@ -256,7 +261,7 @@ function SecurityTab() {
                     <TableCell>{log.ipaddress}</TableCell>
                     <TableCell>{log.location}</TableCell>
                     <TableCell>
-                      {format(log.date, 'dd MMMM, yyyy - h:mm:ss a')}
+                      {dayjs(log.date).format('DD MMMM, YYYY - h:mm:ss A')}
                     </TableCell>
                     <TableCell align="right">
                       <Tooltip placement="top" title="Delete" arrow>
@@ -270,7 +275,7 @@ function SecurityTab() {
                           color="inherit"
                           size="small"
                         >
-                          <DeleteOutlinedIcon fontSize="small" />
+                          <DeleteOutlined fontSize="small" />
                         </IconButton>
                       </Tooltip>
                     </TableCell>

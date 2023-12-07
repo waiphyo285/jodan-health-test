@@ -15,7 +15,7 @@ import { handleToggleModal } from '@/utilities/Handlers';
 
 import generateValues from '@/sources/pages/User';
 import userRoleValues from '@/sources/pages/UserRole';
-import generateTableCols from '@/configs/GenerateTableCols';
+import generateTableCols from '@/configs/TableColumns';
 
 function UserPage() {
   const userRoles: any = useSelector(
