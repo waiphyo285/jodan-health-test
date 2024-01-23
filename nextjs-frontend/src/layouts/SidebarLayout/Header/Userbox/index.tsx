@@ -28,7 +28,7 @@ import { useLogout } from '@/hooks/auth/useLogout';
 import { getCurrentUser } from '@/utilities/Getters';
 
 import { findAccessHeaderItem } from '@/utilities/Helpers';
-import { acccessComponents } from '@/utilities/constants/storeKeys';
+import { accessComponents } from '@/utilities/constants/storeKeys';
 
 const UserBoxButton = styled(Button)(
   ({ theme }) => `
@@ -74,7 +74,7 @@ function HeaderUserbox() {
   const [isOpen, setOpen] = useState<boolean>(false);
 
   const canViewProfile = findAccessHeaderItem(
-    acccessComponents.CAN_VIEW_PROFILE
+    accessComponents.CAN_VIEW_PROFILE
   );
 
   const handleOpen = (): void => {

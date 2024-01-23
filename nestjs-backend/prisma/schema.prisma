@@ -10,23 +10,6 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model UserRole {
-    id     String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
-    name   Int    @db.TinyInt()
-    level  Int    @db.TinyInt()
-    active Int    @default(1) @db.TinyInt()
-
-    system_users SystemUser[]
-
-    app_level_accesses  AppLevelAccess[]
-    page_level_accesses PageLevelAccess[]
-
-    created_at DateTime @default(now())
-    updated_at DateTime @default(now())
-
-    @@map("user_role")
-}
-
 model AppLevelAccess {
     id String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
 
@@ -67,6 +50,23 @@ model PageLevelAccess {
     @@map("page_level_access")
 }
 
+model UserRole {
+    id     String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
+    name   Int    @db.TinyInt()
+    level  Int    @db.TinyInt()
+    active Int    @default(1) @db.TinyInt()
+
+    system_users SystemUser[]
+
+    app_level_accesses  AppLevelAccess[]
+    page_level_accesses PageLevelAccess[]
+
+    created_at DateTime @default(now())
+    updated_at DateTime @default(now())
+
+    @@map("user_role")
+}
+
 model SystemUser {
     id          String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
     fullname    String @db.VarChar(50)
@@ -84,31 +84,31 @@ model SystemUser {
     @@map("system_user")
 }
 
-model Region {
-    id      String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
-    name    String @db.VarChar(50)
-    name_mm String @db.VarChar(50)
-    active  Int    @default(1) @db.TinyInt()
+model Language {
+    id     String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
+    name   String @db.VarChar(50)
+    active Int    @default(1) @db.TinyInt()
 
-    townships Township[]
+    records Record[]
 
     created_at DateTime @default(now())
     updated_at DateTime @default(now())
 
-    @@map("region")
+    @@map("language")
 }
 
-model Township {
-    id      String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
-    name    String @db.VarChar(50)
-    name_mm String @db.VarChar(50)
-    active  Int    @default(1) @db.TinyInt()
+model Record {
+    id         String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
+    name       String @db.VarChar(50)
+    category   String @db.VarChar(50)
+    page_count Int    @default(1)
+    active     Int    @default(1) @db.TinyInt()
 
-    region_id String @db.VarChar(36)
-    region    Region @relation(fields: [region_id], references: [id])
+    language_id String   @db.VarChar(36)
+    language    Language @relation(fields: [language_id], references: [id])
 
     created_at DateTime @default(now())
     updated_at DateTime @default(now())
 
-    @@map("township")
+    @@map("record")
 }

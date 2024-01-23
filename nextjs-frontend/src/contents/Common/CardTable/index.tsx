@@ -13,7 +13,7 @@ import { deleteData, getPageData } from '@/redux/list/common.slice';
 import { createData, getOneData, updateData } from '@/redux/entry/common.slice';
 
 import { findAccessMenu } from '@/utilities/Helpers';
-import { acccessComponents } from '@/utilities/constants/storeKeys';
+import { accessComponents } from '@/utilities/constants/storeKeys';
 import { actionType, dataTable } from '@/utilities/constants/application';
 
 const PAGE_SIZE = dataTable.PAGE_SIZE_10;
@@ -56,7 +56,7 @@ function CardTable({
     searchValue: ''
   });
 
-  const action = acccessComponents.CAN_VIEW_LIST;
+  const action = accessComponents.CAN_VIEW_LIST;
   const canAccess = findAccessMenu(action, router.pathname);
 
   const handlePagination = (

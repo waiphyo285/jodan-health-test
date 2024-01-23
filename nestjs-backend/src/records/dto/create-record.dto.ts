@@ -8,7 +8,7 @@ import {
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateTownshipDto {
+export class CreateRecordDto {
   @IsNotEmpty()
   @IsString()
   @MaxLength(50)
@@ -21,16 +21,21 @@ export class CreateTownshipDto {
   @MaxLength(50)
   @MinLength(2)
   @ApiProperty()
-  name_mm: string;
+  category: string;
 
-  @IsOptional()
+  @IsNotEmpty()
+  @IsInt()
+  @ApiProperty()
+  page_count: number;
+
+  @IsNotEmpty()
   @IsString()
   @MaxLength(36)
   @MinLength(0)
   @ApiProperty()
-  region_id: string;
+  language_id: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsInt()
   @ApiProperty()
   active: number;

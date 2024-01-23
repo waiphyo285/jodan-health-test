@@ -14,22 +14,22 @@ import { UseGuards } from '@nestjs/common/decorators';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ResponseMessage } from 'src/common/handlers/response-message';
 import { PaginationQuery } from 'src/common/interfaces/request-query';
-import { CreateRegionDto } from './dto/create-region.dto';
-import { UpdateRegionDto } from './dto/update-region.dto';
-import { RegionService } from './region.service';
+import { CreateRecordDto } from './dto/create-record.dto';
+import { UpdateRecordDto } from './dto/update-record.dto';
+import { RecordService } from './record.service';
 import { AuthGuard } from '../auth/auth.guard';
 
-@Controller('regions')
-@ApiTags('Region')
-export class RegionController {
-  constructor(private regionService: RegionService) {}
+@Controller('records')
+@ApiTags('Record')
+export class RecordController {
+  constructor(private recordService: RecordService) {}
 
   @Get()
   @UseGuards(AuthGuard)
   @ApiBearerAuth('JWT-auth')
   @ResponseMessage('success')
   async GetAllByFilter(@Query() query: any) {
-    return this.regionService.getAllByFilter(query);
+    return this.recordService.getAllByFilter(query);
   }
 
   @Get('/pages')
@@ -37,7 +37,7 @@ export class RegionController {
   @ApiBearerAuth('JWT-auth')
   @ResponseMessage('success')
   async GetByPagination(@Query() query: PaginationQuery) {
-    return this.regionService.getByPagination(query);
+    return this.recordService.getByPagination(query);
   }
 
   @Get(':id')
@@ -45,32 +45,32 @@ export class RegionController {
   @ApiBearerAuth('JWT-auth')
   @ResponseMessage('success')
   async GetOne(@Param('id') id: string) {
-    return this.regionService.getOneById(id);
+    return this.recordService.getOneById(id);
   }
 
   @Post()
   @UseGuards(AuthGuard)
   @ApiBearerAuth('JWT-auth')
   @UsePipes(ValidationPipe)
-  @ResponseMessage('New region has been successfully created.')
-  async create(@Body() region: CreateRegionDto) {
-    return this.regionService.create(region);
+  @ResponseMessage('New record has been successfully created.')
+  async create(@Body() body: CreateRecordDto) {
+    return this.recordService.create(body);
   }
 
   @Patch(':id')
   @UseGuards(AuthGuard)
   @ApiBearerAuth('JWT-auth')
   @UsePipes(ValidationPipe)
-  @ResponseMessage('A region has been successfully updated.')
-  async update(@Param('id') id: string, @Body() region: UpdateRegionDto) {
-    return this.regionService.update(id, region);
+  @ResponseMessage('A record has been successfully updated.')
+  async update(@Param('id') id: string, @Body() body: UpdateRecordDto) {
+    return this.recordService.update(id, body);
   }
 
   @Delete(':id')
   @UseGuards(AuthGuard)
   @ApiBearerAuth('JWT-auth')
-  @ResponseMessage('A region has been permanently deleted.')
+  @ResponseMessage('A record has been permanently deleted.')
   async delete(@Param('id') id: string) {
-    return this.regionService.delete(id);
+    return this.recordService.delete(id);
   }
 }

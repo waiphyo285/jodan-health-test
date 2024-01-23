@@ -9,8 +9,8 @@ import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { GlobalExceptionFilter } from 'src/common/handlers/catch-exception';
 import { TransformationInterceptor } from 'src/common/handlers/response-success';
 
-import { CheckRequestData } from './middleware/check-request';
-import { CheckIsEmptyId } from './middleware/check-empty-id';
+import { CheckRequestData } from './middlewares/check-request';
+import { CheckIsEmptyId } from './middlewares/check-empty-id';
 
 const envModule = ConfigModule.forRoot({
   isGlobal: true,
@@ -19,16 +19,16 @@ const envModule = ConfigModule.forRoot({
 import { PrismaModule } from './prisma/prisma.module';
 
 // PERMISSION
-import { PermissionModule } from './permission/permission.module';
+import { PermissionModule } from './permissions/permission.module';
 
 // USER
 import { AuthModule } from './auth/auth.module';
-import { UserRoleModule } from './user-role/user-role.module';
-import { SystemUserModule } from './system-user/system-user.module';
+import { UserRoleModule } from './user-roles/user-role.module';
+import { SystemUserModule } from './system-users/system-user.module';
 
 // GENERAL SETUP
-import { RegionModule } from './region/region.module';
-import { TownshipModule } from './township/township.module';
+import { LanguageModule } from './languages/language.module';
+import { TownshipModule } from './records/record.module';
 // import { FirebaseAdminModule } from './firebase-admin/firebase-admin.module';
 
 @Module({
@@ -45,14 +45,8 @@ import { TownshipModule } from './township/township.module';
     SystemUserModule,
 
     // GENERAL
-    RegionModule,
+    LanguageModule,
     TownshipModule,
-
-    // SETUP FCM
-    //FirebaseAdminModule,
-
-    // NOTIFICATION
-    //CloudMessageModule,
   ],
   providers: [
     {

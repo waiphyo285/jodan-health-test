@@ -1,17 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { Helpers } from 'src/utilities/helpers';
 
-import { CreateRegionDto } from './dto/create-region.dto';
-import { UpdateRegionDto } from './dto/update-region.dto';
+import { CreateLanguageDto } from './dto/create-language.dto';
+import { UpdateLanguageDto } from './dto/update-language.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { Region } from '@prisma/client';
+import { Language } from '@prisma/client';
 
 @Injectable()
-export class RegionService {
+export class LanguageService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async getAllByFilter(query: any): Promise<Region[]> {
-    return await this.prisma.region.findMany({
+  async getAllByFilter(query: any): Promise<Language[]> {
+    return await this.prisma.language.findMany({
       where: query,
     });
   }
@@ -20,14 +20,14 @@ export class RegionService {
     const { filterObj, searchKey, searchVal, skip, take, sortKey, sortVal } =
       Helpers.queryOption(query, { searchKey: 'name' });
 
-    const result = await this.prisma.region.findMany({
+    const result = await this.prisma.language.findMany({
       where: { [searchKey]: { contains: searchVal }, ...filterObj },
       orderBy: { [sortKey]: sortVal },
       skip: skip * take,
       take: take,
     });
 
-    const total = await this.prisma.region.count();
+    const total = await this.prisma.language.count();
 
     return {
       data: result,
@@ -40,23 +40,23 @@ export class RegionService {
   }
 
   async getOneById(id: string): Promise<any> {
-    return await this.prisma.region.findUnique({
+    return await this.prisma.language.findUnique({
       where: { id: id },
     });
   }
 
-  async create(region: CreateRegionDto): Promise<Region> {
-    return await this.prisma.region.create({ data: region });
+  async create(body: CreateLanguageDto): Promise<Language> {
+    return await this.prisma.language.create({ data: body });
   }
 
-  async update(id: string, region: UpdateRegionDto): Promise<Region> {
-    return await this.prisma.region.update({
+  async update(id: string, body: UpdateLanguageDto): Promise<Language> {
+    return await this.prisma.language.update({
       where: { id: id },
-      data: region,
+      data: body,
     });
   }
 
-  async delete(id: string): Promise<Region> {
-    return await this.prisma.region.delete({ where: { id: id } });
+  async delete(id: string): Promise<Language> {
+    return await this.prisma.language.delete({ where: { id: id } });
   }
 }

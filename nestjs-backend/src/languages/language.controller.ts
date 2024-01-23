@@ -14,22 +14,22 @@ import { UseGuards } from '@nestjs/common/decorators';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ResponseMessage } from 'src/common/handlers/response-message';
 import { PaginationQuery } from 'src/common/interfaces/request-query';
-import { CreateTownshipDto } from './dto/create-township.dto';
-import { UpdateTownshipDto } from './dto/update-township.dto';
-import { TownshipService } from './township.service';
+import { CreateLanguageDto } from './dto/create-language.dto';
+import { UpdateLanguageDto } from './dto/update-language.dto';
+import { LanguageService } from './language.service';
 import { AuthGuard } from '../auth/auth.guard';
 
-@Controller('townships')
-@ApiTags('Township')
-export class TownshipController {
-  constructor(private townshipService: TownshipService) {}
+@Controller('languages')
+@ApiTags('Language')
+export class LanguageController {
+  constructor(private languageService: LanguageService) {}
 
   @Get()
   @UseGuards(AuthGuard)
   @ApiBearerAuth('JWT-auth')
   @ResponseMessage('success')
   async GetAllByFilter(@Query() query: any) {
-    return this.townshipService.getAllByFilter(query);
+    return this.languageService.getAllByFilter(query);
   }
 
   @Get('/pages')
@@ -37,7 +37,7 @@ export class TownshipController {
   @ApiBearerAuth('JWT-auth')
   @ResponseMessage('success')
   async GetByPagination(@Query() query: PaginationQuery) {
-    return this.townshipService.getByPagination(query);
+    return this.languageService.getByPagination(query);
   }
 
   @Get(':id')
@@ -45,32 +45,32 @@ export class TownshipController {
   @ApiBearerAuth('JWT-auth')
   @ResponseMessage('success')
   async GetOne(@Param('id') id: string) {
-    return this.townshipService.getOneById(id);
+    return this.languageService.getOneById(id);
   }
 
   @Post()
   @UseGuards(AuthGuard)
   @ApiBearerAuth('JWT-auth')
   @UsePipes(ValidationPipe)
-  @ResponseMessage('New township has been successfully created.')
-  async create(@Body() township: CreateTownshipDto) {
-    return this.townshipService.create(township);
+  @ResponseMessage('New language has been successfully created.')
+  async create(@Body() body: CreateLanguageDto) {
+    return this.languageService.create(body);
   }
 
   @Patch(':id')
   @UseGuards(AuthGuard)
   @ApiBearerAuth('JWT-auth')
   @UsePipes(ValidationPipe)
-  @ResponseMessage('A township has been successfully updated.')
-  async update(@Param('id') id: string, @Body() township: UpdateTownshipDto) {
-    return this.townshipService.update(id, township);
+  @ResponseMessage('An language has been successfully updated.')
+  async update(@Param('id') id: string, @Body() body: UpdateLanguageDto) {
+    return this.languageService.update(id, body);
   }
 
   @Delete(':id')
   @UseGuards(AuthGuard)
   @ApiBearerAuth('JWT-auth')
-  @ResponseMessage('A township has been permanently deleted.')
+  @ResponseMessage('An language has been permanently deleted.')
   async delete(@Param('id') id: string) {
-    return this.townshipService.delete(id);
+    return this.languageService.delete(id);
   }
 }

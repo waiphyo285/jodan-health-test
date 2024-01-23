@@ -11,10 +11,10 @@ import PageWrapper from '@/components/PageWrapper';
 import { AppState } from '@/redux/store';
 import { handleToggleModal } from '@/utilities/Handlers';
 
-import generateValues from '@/sources/pages/Region';
+import generateValues from '@/sources/pages/Language';
 import generateTableCols from '@/configs/TableColumns';
 
-function RegionPage() {
+function LanguagePage() {
   const { initialValues: storeValues, actionsValues } = useSelector(
     (state: AppState) => state?.commonEntry.formData
   );
@@ -70,6 +70,6 @@ function RegionPage() {
   );
 }
 
-RegionPage.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
+LanguagePage.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
-export default RegionPage;
+export default LanguagePage;

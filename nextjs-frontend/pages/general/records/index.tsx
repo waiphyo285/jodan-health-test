@@ -13,19 +13,19 @@ import { AppState, store } from '@/redux/store';
 import { getListData } from '@/redux/config.slice';
 import { handleToggleModal } from '@/utilities/Handlers';
 
-import regionValues from '@/sources/pages/Region';
-import generateValues from '@/sources/pages/Township';
+import languageValues from '@/sources/pages/Language';
+import generateValues from '@/sources/pages/Record';
 import generateTableCols from '@/configs/TableColumns';
 
-function TownshipPage() {
+function RecordPage() {
   const { initialValues: storeValues, actionsValues } = useSelector(
     (state: AppState) => state?.commonEntry.formData
   );
 
-  const { regions }: any = useSelector((state: AppState) => state?.appConfig);
+  const { languages }: any = useSelector((state: AppState) => state?.appConfig);
 
-  const regionStore = regionValues.makeStoreKey();
-  const regionEndPoint = regionValues.makeEndPoint();
+  const languageStore = languageValues.makeStoreKey();
+  const languageEndPoint = languageValues.makeEndPoint();
 
   const endPoint = generateValues.makeEndPoint();
   const moduleName = generateValues.makeStoreKey();
@@ -43,12 +43,12 @@ function TownshipPage() {
   const tableCols: GridColDef[] = generateTableCols(tableColumns);
 
   const memoizedList = useCallback(
-    (regionStore) =>
+    (languageStore) =>
       batch(() => {
         store?.dispatch(
           getListData({
-            url: regionEndPoint.default,
-            storeKey: regionStore
+            url: languageEndPoint.default,
+            storeKey: languageStore
           })
         );
       }),
@@ -59,11 +59,11 @@ function TownshipPage() {
     handleToggleModal({ ...actionsValues, ...updatedValues });
 
   const modFormField = formFields.map((field) => {
-    if (field.name == 'region_id') field.options = regions;
+    if (field.name == 'language_id') field.options = languages;
     return field;
   });
 
-  useEffect(() => memoizedList(regionStore), [regionStore]);
+  useEffect(() => memoizedList(languageStore), [languageStore]);
 
   return (
     <PageWrapper
@@ -78,26 +78,28 @@ function TownshipPage() {
       }
     >
       <Grid item xs={12}>
-        <DataTable
-          columns={tableCols}
-          endPoint={endPoint}
-          storeKey={moduleName}
-          formFields={modFormField}
-          searchOption={searchOption}
-          modalValues={modalValues}
-          actionsValues={actionsValues}
-          initialValues={{
-            ...initialValues,
-            ...storeValues
-          }}
-          validationSchema={validationSchema}
-          handleToggleModal={handleModalForm}
-        />
+        {languages && (
+          <DataTable
+            columns={tableCols}
+            endPoint={endPoint}
+            storeKey={moduleName}
+            formFields={modFormField}
+            searchOption={searchOption}
+            modalValues={modalValues}
+            actionsValues={actionsValues}
+            initialValues={{
+              ...initialValues,
+              ...storeValues
+            }}
+            validationSchema={validationSchema}
+            handleToggleModal={handleModalForm}
+          />
+        )}
       </Grid>
     </PageWrapper>
   );
 }
 
-TownshipPage.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
+RecordPage.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
-export default TownshipPage;
+export default RecordPage;

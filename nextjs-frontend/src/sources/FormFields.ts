@@ -112,17 +112,11 @@ export const userRoleFormFields = [
   }
 ];
 
-export const regionFormFields = [
+export const languageFormFields = [
   {
     name: 'name',
     type: fieldType.TEXT,
-    label: 'Region *',
-    xsGrid: 12
-  },
-  {
-    name: 'name_mm',
-    type: fieldType.TEXT,
-    label: 'Region (MM) *',
+    label: 'Language *',
     xsGrid: 12
   },
   {
@@ -137,19 +131,25 @@ export const townshipFormFields = [
   {
     name: 'name',
     type: fieldType.TEXT,
-    label: 'Township *',
+    label: 'Record *',
     xsGrid: 12
   },
   {
-    name: 'name_mm',
+    name: 'category',
     type: fieldType.TEXT,
-    label: 'Township (MM) *',
+    label: 'Category *',
     xsGrid: 12
   },
   {
-    name: 'region_id',
+    name: 'page_count',
+    type: fieldType.NUMBER,
+    label: 'Page Count *',
+    xsGrid: 12
+  },
+  {
+    name: 'language_id',
     type: fieldType.SELECT,
-    label: 'Region *',
+    label: 'Language *',
     xsGrid: 12,
     options: [],
     optionKeyProp: 'id',

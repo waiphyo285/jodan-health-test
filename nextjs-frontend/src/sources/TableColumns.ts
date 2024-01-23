@@ -71,13 +71,7 @@ export const regionTableColumns = [
   {
     field: 'name',
     type: columnType.STRING,
-    headerName: 'Region',
-    flex: 1
-  },
-  {
-    field: 'name_mm',
-    type: columnType.STRING,
-    headerName: 'Region (MM)',
+    headerName: 'Language',
     flex: 1
   },
   {
@@ -93,17 +87,23 @@ export const townshipTableColumns = [
   {
     field: 'name',
     type: columnType.STRING,
-    headerName: 'Township',
+    headerName: 'Record',
     flex: 1
   },
   {
-    field: 'name_mm',
+    field: 'category',
     type: columnType.STRING,
-    headerName: 'Township (MM)',
+    headerName: 'Category',
     flex: 1
   },
   {
-    field: 'region',
+    field: 'language',
+    type: columnType.STRING,
+    headerName: 'Language',
+    flex: 1
+  },
+  {
+    field: 'page_count',
     type: columnType.STRING,
     headerName: 'Region',
     flex: 1

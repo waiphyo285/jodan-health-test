@@ -91,7 +91,7 @@ export class RequestAdapter extends NetworkAdapter {
           .removeProperty('re_password')
           .finish();
 
-      case storeKeys.TOWNSHIP:
+      case storeKeys.RECORD:
         return new ObjectConverter(origin).removeProperty('region').finish();
 
       default:
@@ -110,9 +110,9 @@ export class ResponseAdapter extends NetworkAdapter {
       case storeKeys.USER:
         return new ObjectConverter(data).removeProperty('password').finish();
 
-      case storeKeys.TOWNSHIP:
+      case storeKeys.RECORD:
         return new ObjectConverter(data)
-          .addProperty('region', data.region.name || '')
+          .addProperty('language', data.language.name || '')
           .finish();
 
       default:
@@ -142,14 +142,26 @@ export class ResponseAdapter extends NetworkAdapter {
     const origin = this.resData;
     const options = this.options;
 
+    console.log('reach page res ', origin, options);
+
     if (isArray(origin.data)) {
       const { data, pageInfo } = origin;
+
+      console.warn('reach page res array 1 ', {
+        ...origin,
+        data: data
+      });
 
       const modifiedData = data.map((obj: any, index: number) => {
         return {
           ...this.serialize(options.apiName, obj),
           no: pageInfo.page * pageInfo.pageSize + index + 1
         };
+      });
+
+      console.warn('reach page res array 2 ', {
+        ...origin,
+        data: modifiedData
       });
 
       return {

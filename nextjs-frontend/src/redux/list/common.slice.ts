@@ -18,8 +18,8 @@ const initialState = {
   [storeKeys.USER]: initialValue,
   [storeKeys.USER_ROLE]: initialValue,
 
-  [storeKeys.REGION]: initialValue,
-  [storeKeys.TOWNSHIP]: initialValue
+  [storeKeys.LANGUAGE]: initialValue,
+  [storeKeys.RECORD]: initialValue
 };
 
 export const getListData = createAsyncThunk(

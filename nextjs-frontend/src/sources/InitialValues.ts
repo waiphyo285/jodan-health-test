@@ -203,7 +203,7 @@ export const profileInitialValues = [
   }
 ];
 
-export const regionInitialValues = [
+export const languageInitialValues = [
   {
     key: 'id',
     type: formikType.STRING,
@@ -212,12 +212,6 @@ export const regionInitialValues = [
   },
   {
     key: 'name',
-    type: formikType.STRING,
-    value: '',
-    required: true
-  },
-  {
-    key: 'name_mm',
     type: formikType.STRING,
     value: '',
     required: true
@@ -230,7 +224,7 @@ export const regionInitialValues = [
   }
 ];
 
-export const townshipInitialValues = [
+export const recordInitialValues = [
   {
     key: 'id',
     type: formikType.STRING,
@@ -244,13 +238,19 @@ export const townshipInitialValues = [
     required: true
   },
   {
-    key: 'name_mm',
+    key: 'category',
     type: formikType.STRING,
     value: '',
     required: true
   },
   {
-    key: 'region_id',
+    key: 'page_count',
+    type: formikType.NUMBER,
+    value: 1,
+    required: true
+  },
+  {
+    key: 'language_id',
     type: formikType.TABLE_ID,
     value: '',
     required: true

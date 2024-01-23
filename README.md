@@ -1,7 +1,9 @@
 ## Fullstack Template: Nest.js and Next.js
+
 This repository serves as a comprehensive template for developing a fullstack application. The backend, built with Nest.js, offers a RESTful API structured with a modular architecture. The database integration is powered by MySQL through Prisma. The backend further encompasses features such as robust authentication mechanisms (JWT, OAuth, etc.), thorough error handling, and validation. Additionally, global response handling is implemented to streamline communication with the frontend.
 
 ### Backend Features
+
 - RESTful API with Modular Architecture:
 The backend is structured with a modular and scalable architecture, providing a RESTful API for seamless communication with the frontend.
 
@@ -18,6 +20,7 @@ Comprehensive error handling and validation mechanisms are implemented to enhanc
 Global response handling is in place, streamlining the interaction between the backend and frontend, ensuring consistent and standardized responses.
 
 ### Frontend Features
+
 - State Management:
 The frontend utilizes Redux Toolkit for state management, providing a predictable and centralized state container for the application.
 

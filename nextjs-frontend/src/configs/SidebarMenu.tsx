@@ -2,7 +2,8 @@ import {
   DashboardOutlined,
   PeopleAltOutlined,
   VerifiedUserOutlined,
-  LocationCityOutlined
+  LanguageOutlined,
+  FormatListNumberedOutlined
 } from '@mui/icons-material';
 
 export const SidebarMenuList: any = [
@@ -41,16 +42,16 @@ export const SidebarMenuList: any = [
     title: 'General',
     subMenu: [
       {
-        name: 'region',
-        title: 'Regions',
-        icon: <LocationCityOutlined />,
-        link: '/general/regions'
+        name: 'language',
+        title: 'Languages',
+        icon: <LanguageOutlined />,
+        link: '/general/languages'
       },
       {
-        name: 'township',
-        title: 'Townships',
-        icon: <LocationCityOutlined />,
-        link: '/general/townships'
+        name: 'record',
+        title: 'Records',
+        icon: <FormatListNumberedOutlined />,
+        link: '/general/records'
       }
     ]
   }

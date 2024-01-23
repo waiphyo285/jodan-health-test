@@ -13,12 +13,12 @@ import {
 import { SearchOutlined } from '@mui/icons-material';
 
 import { findAccessMenu } from '@/utilities/Helpers';
-import { acccessComponents } from '@/utilities/constants/storeKeys';
+import { accessComponents } from '@/utilities/constants/storeKeys';
 
 function SearchInput({ searchOption, handleSearchBlur }) {
   const router = useRouter();
-  const action1 = acccessComponents.CAN_FILTER_LIST;
-  const action2 = acccessComponents.CAN_SEARCH_LIST;
+  const action1 = accessComponents.CAN_FILTER_LIST;
+  const action2 = accessComponents.CAN_SEARCH_LIST;
 
   const canAccessFilter = findAccessMenu(action1, router.pathname);
   const canAccessSerach = findAccessMenu(action2, router.pathname);

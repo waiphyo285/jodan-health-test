@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
-import { SystemUserModule } from '../system-user/system-user.module';
+import { SystemUserModule } from '../system-users/system-user.module';
 import { jwtConstants } from './constants';
 import { PrismaModule } from 'src/prisma/prisma.module';
 

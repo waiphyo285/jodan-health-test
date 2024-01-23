@@ -37,5 +37,5 @@ export const initModalValues: any = [
 export const userModalValues = initModalValues;
 export const userRoleModalValues = initModalValues;
 
-export const regionModalValues = initModalValues;
-export const townshipModalValues = initModalValues;
+export const languageModalValues = initModalValues;
+export const recordModalValues = initModalValues;

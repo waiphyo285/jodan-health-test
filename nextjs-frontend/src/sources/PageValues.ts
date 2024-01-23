@@ -135,7 +135,7 @@ export const userRolePageValues = [
   }
 ];
 
-export const regionPageValues = [
+export const languagePageValues = [
   ...initPageValues,
   {
     key: 'head',
@@ -143,11 +143,11 @@ export const regionPageValues = [
   },
   {
     key: 'title',
-    value: 'Regions'
+    value: 'Languages'
   }
 ];
 
-export const townshipPageValues = [
+export const recordPageValues = [
   ...initPageValues,
   {
     key: 'head',
@@ -155,6 +155,6 @@ export const townshipPageValues = [
   },
   {
     key: 'title',
-    value: 'Townships'
+    value: 'Records'
   }
 ];

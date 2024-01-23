@@ -17,11 +17,11 @@ export const storeKeys = {
   APP_LEVEL_ACCESS: 'get-app-access',
   PAGE_LEVEL_ACCESS: 'get-page-access',
 
-  REGION: 'regions',
-  TOWNSHIP: 'townships'
+  LANGUAGE: 'languages',
+  RECORD: 'records'
 };
 
-export const acccessComponents = {
+export const accessComponents = {
   CAN_CREATE_RECORD: 'can_create_record',
   CAN_EDIT_RECORD: 'can_edit_record',
   CAN_DELETE_RECORD: 'can_delete_record',

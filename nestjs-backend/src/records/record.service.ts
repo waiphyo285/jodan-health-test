@@ -1,23 +1,22 @@
 import { Injectable } from '@nestjs/common';
 import { Helpers } from 'src/utilities/helpers';
 
-import { CreateTownshipDto } from './dto/create-township.dto';
-import { UpdateTownshipDto } from './dto/update-township.dto';
+import { CreateRecordDto } from './dto/create-record.dto';
+import { UpdateRecordDto } from './dto/update-record.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { Township } from '@prisma/client';
+import { Record } from '@prisma/client';
 
 @Injectable()
-export class TownshipService {
+export class RecordService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async getAllByFilter(query: any): Promise<Township[]> {
-    return await this.prisma.township.findMany({
+  async getAllByFilter(query: any): Promise<Record[]> {
+    return await this.prisma.record.findMany({
       where: query,
       include: {
-        region: {
+        language: {
           select: {
             name: true,
-            name_mm: true,
           },
         },
       },
@@ -28,13 +27,12 @@ export class TownshipService {
     const { filterObj, searchKey, searchVal, skip, take, sortKey, sortVal } =
       Helpers.queryOption(query, { searchKey: 'name' });
 
-    const result = await this.prisma.township.findMany({
+    const result = await this.prisma.record.findMany({
       where: { [searchKey]: { contains: searchVal }, ...filterObj },
       include: {
-        region: {
+        language: {
           select: {
             name: true,
-            name_mm: true,
           },
         },
       },
@@ -43,7 +41,7 @@ export class TownshipService {
       take: take,
     });
 
-    const total = await this.prisma.township.count();
+    const total = await this.prisma.record.count();
 
     return {
       data: result,
@@ -56,33 +54,32 @@ export class TownshipService {
   }
 
   async getOneById(id: string): Promise<any> {
-    return await this.prisma.township.findUnique({
+    return await this.prisma.record.findUnique({
       where: { id: id },
       include: {
-        region: {
+        language: {
           select: {
             name: true,
-            name_mm: true,
           },
         },
       },
     });
   }
 
-  async create(township: CreateTownshipDto): Promise<Township> {
-    return await this.prisma.township.create({ data: township });
+  async create(body: CreateRecordDto): Promise<Record> {
+    return await this.prisma.record.create({ data: body });
   }
 
-  async update(id: string, township: UpdateTownshipDto): Promise<Township> {
-    return await this.prisma.township.update({
+  async update(id: string, body: UpdateRecordDto): Promise<Record> {
+    return await this.prisma.record.update({
       where: {
         id: id,
       },
-      data: township,
+      data: body,
     });
   }
 
-  async delete(id: string): Promise<Township> {
-    return await this.prisma.township.delete({ where: { id: id } });
+  async delete(id: string): Promise<Record> {
+    return await this.prisma.record.delete({ where: { id: id } });
   }
 }

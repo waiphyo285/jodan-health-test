@@ -10,8 +10,8 @@ const initialState = {
   [storeKeys.APP_LEVEL_ACCESS]: [],
   [storeKeys.PAGE_LEVEL_ACCESS]: [],
 
-  [storeKeys.REGION]: [],
-  [storeKeys.TOWNSHIP]: []
+  [storeKeys.LANGUAGE]: [],
+  [storeKeys.RECORD]: []
 };
 
 export const getListData = createAsyncThunk(

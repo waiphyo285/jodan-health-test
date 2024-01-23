@@ -33,18 +33,18 @@ export const userSearchOptions = [
   }
 ];
 
-export const regionSearchOptions = [
+export const languageSearchOptions = [
   ...defaultOption,
   {
     value: 'name',
-    displayName: 'Region'
+    displayName: 'Language'
   }
 ];
 
-export const townshipSearchOptions = [
+export const recordSearchOptions = [
   ...defaultOption,
   {
     value: 'name',
-    displayName: 'Township'
+    displayName: 'Record'
   }
 ];
