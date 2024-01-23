@@ -89,10 +89,11 @@ export class RequestAdapter extends NetworkAdapter {
 
         return new ObjectConverter(origin)
           .removeProperty('re_password')
+          .removeProperty('user_role')
           .finish();
 
       case storeKeys.RECORD:
-        return new ObjectConverter(origin).removeProperty('region').finish();
+        return new ObjectConverter(origin).removeProperty('language').finish();
 
       default:
         return origin;

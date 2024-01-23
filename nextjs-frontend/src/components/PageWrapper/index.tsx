@@ -50,6 +50,7 @@ const PageWrapper: FC<PageWrapperProps> = ({
           justifyContent="center"
           alignItems="stretch"
           spacing={3}
+          minHeight={'66vh'}
         >
           {children}
         </Grid>

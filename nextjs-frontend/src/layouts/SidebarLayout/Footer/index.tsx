@@ -22,7 +22,7 @@ function Footer() {
       >
         <Box>
           <Typography variant="subtitle1">
-            &copy; 2023 - {appInfo.DESCRIPTION}
+            &copy; 2024 - {appInfo.DESCRIPTION}
           </Typography>
         </Box>
         <Typography sx={{ pt: { xs: 2, md: 0 } }} variant="subtitle1">

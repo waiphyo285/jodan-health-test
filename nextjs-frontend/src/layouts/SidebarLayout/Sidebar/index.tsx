@@ -62,7 +62,7 @@ function Sidebar() {
         }}
       >
         <Scrollbar>
-          <Box mt={3}>
+          {/* <Box mt={3}>
             <Box
               mx={2}
               sx={{
@@ -78,7 +78,7 @@ function Sidebar() {
               mx: theme.spacing(2),
               background: theme.colors.alpha.trueWhite[10]
             }}
-          />
+          /> */}
           <SidebarMenu />
         </Scrollbar>
         <Divider sx={{ background: theme.colors.alpha.trueWhite[10] }} />

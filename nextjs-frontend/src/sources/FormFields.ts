@@ -15,7 +15,7 @@ export const userFormFields = [
     xsGrid: 6
   },
   {
-    name: 'user_role_id',
+    name: 'role_id',
     type: fieldType.SELECT,
     label: 'User Role *',
     xsGrid: 6,

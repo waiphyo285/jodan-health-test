@@ -109,15 +109,17 @@ function LoginPage() {
               sx={{
                 m: 1,
                 p: 1,
-                textAlign: 'center'
+                textAlign: 'center',
+                fontSize: '26px'
               }}
             >
-              <Image
+              {/* <Image
                 src="/logo/logo.png"
                 alt={appInfo.NAME}
                 width={80}
                 height={80}
-              />
+              /> */}
+              Login
             </Box>
 
             <Field

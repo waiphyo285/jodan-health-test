@@ -75,7 +75,7 @@ export const userInitialValues = [
     required: true
   },
   {
-    key: 'user_role_id',
+    key: 'role_id',
     type: formikType.TABLE_ID,
     value: '',
     required: true
